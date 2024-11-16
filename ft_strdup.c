@@ -6,21 +6,21 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:28:19 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/14 15:35:37 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:13:28 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
-{
-	char	str[] = "hello ";
-	char	*ptr;
-
-	ptr = ft_strdup(str);
-	printf("%s\n", ptr);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	str[] = "hello ";
+// 	char	*ptr;
+//
+// 	ptr = ft_strdup(str);
+// 	printf("%s\n", ptr);
+// 	return (0);
+// }
 
 char	*ft_strdup(const char *s)
 {
