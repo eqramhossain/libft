@@ -6,12 +6,13 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:49:47 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/18 15:51:07 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:41:58 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//
 // int	main(void)
 // {
 // 	char	str[] = "hello w\0orld";
@@ -25,35 +26,18 @@
 // 	return (0);
 // }
 
-// char	*ft_strchr(const char *s, int c)
-// {
-// 	char	*ptr_s;
-//
-// 	ptr_s = (char *)s;
-// 	while (*ptr_s)
-// 	{
-// 		if (*ptr_s == c)
-// 		{
-// 			return (ptr_s);
-// 		}
-// 		ptr_s++;
-// 	}
-// 	if (c == '\0')
-// 		return (ptr_s);
-// 	return (0);
-// }
-
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	size_t	i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c)
-		{
-			return ((char *)s);
-		}
-		s++;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)s);
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
 	return (0);
 }
