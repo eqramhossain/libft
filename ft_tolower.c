@@ -6,21 +6,12 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:09:36 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/16 11:24:36 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:28:00 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// int	main(void)
-// {
-// 	int	i;
-//
-// 	i = ft_tolower('C');
-// 	printf("%c", i);
-// 	return (0);
-// }
-//
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')

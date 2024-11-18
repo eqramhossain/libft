@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:49:47 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/13 12:31:53 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:51:07 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,46 @@
 
 // int	main(void)
 // {
-// 	char	str[] = "hello world";
+// 	char	str[] = "hello w\0orld";
 // 	char	*ptr;
+// 	char	*ptr2;
 //
-// 	ptr = ft_strchr(str, 'e');
+// 	ptr = ft_strchr(str, '\0');
+// 	ptr2 = strchr(str, '\0');
 // 	printf("%s\n", ptr);
+// 	printf("%s\n", ptr2);
 // 	return (0);
 // }
+
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	char	*ptr_s;
+//
+// 	ptr_s = (char *)s;
+// 	while (*ptr_s)
+// 	{
+// 		if (*ptr_s == c)
+// 		{
+// 			return (ptr_s);
+// 		}
+// 		ptr_s++;
+// 	}
+// 	if (c == '\0')
+// 		return (ptr_s);
+// 	return (0);
+// }
+
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	char	*ptr_s;
-
-	i = 0;
-	ptr_s = (char *)s;
-	while (ptr_s[i] != '\0')
+	while (*s)
 	{
-		if (ptr_s[i] == c)
+		if (*s == c)
 		{
-			return (&ptr_s[i]);
+			return ((char *)s);
 		}
-		i++;
+		s++;
 	}
-	return (NULL);
+	if (c == '\0')
+		return ((char *)s);
+	return (0);
 }

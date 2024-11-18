@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:17:26 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/13 11:47:04 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/18 12:03:34 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	{
 		return (src_len);
 	}
-	while ((src[i] != '\0') && (i < (src_len - 1)))
+	while ((src[i] != '\0') && (i < (size - 1)))
 	{
 		dst[i] = src[i];
 		i++;
