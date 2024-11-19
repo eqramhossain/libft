@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 10:33:45 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/18 14:07:52 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:37:36 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	size_t	len;
-	char	*ptr_s1;
+	char	*ptr_s;
 
-	i = 0;
-	j = ft_strlen(s1);
-	while (s1[i] && ft_strchr(set, s1[i]))
+	ptr_s = 0;
+	if (s1 != 0 && set != 0)
 	{
-		i++;
+		i = 0;
+		j = ft_strlen(s1);
+		while (s1[i] && ft_strchr(set, s1[i]))
+			i++;
+		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) && j > i)
+			j--;
+		ptr_s = (char *)malloc(sizeof(char) * (j - i + 1));
+		if (ptr_s)
+			ft_strlcpy(ptr_s, &s1[i], j - i + 1);
 	}
-	while (s1[j - 1] && ft_strchr(set, s1[j - 1]) && j > i)
-	{
-		j--;
-	}
-	len = (j - i);
-	printf("char front = %zu\n", i);
-	printf("char behind = %zu\n", j);
-	printf("len = %zu\n", len);
-	ptr_s1 = (char *)malloc(sizeof(char) * len + 1);
-	if (!ptr_s1)
-		return (NULL);
-	ft_strlcpy(ptr_s1, &s1[i], len);
-	return (ptr_s1);
+	return (ptr_s);
 }

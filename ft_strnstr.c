@@ -5,23 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 14:43:05 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/13 16:25:30 by ehossain         ###   ########.fr       */
+/*   Created: 2024/11/19 09:41:52 by ehossain          #+#    #+#             */
+/*   Updated: 2024/11/19 10:51:25 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// int	main(void)
-// {
-// 	char	big[] = "";
-// 	char	little[] = "";
-// 	char	*ptr;
-//
-// 	ptr = ft_strnstr(big, little, 16);
-// 	printf("%s\n", ptr);
-// 	return (0);
-// }
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -33,17 +22,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	ptr_big = (char *)big;
 	ptr_little = (char *)little;
-	if (ptr_little[i] == '\0')
+	if (ptr_little[0] == '\0' || ptr_little == NULL)
 		return (ptr_big);
 	while (ptr_big[i] != '\0' && i < len)
 	{
 		j = 0;
-		while (ptr_big[i] == ptr_little[j])
-		{
-			if (ptr_big[i + j] == ptr_little[j] && ptr_little[j + 1] == '\0')
-				return (&ptr_big[i + j]);
+		while (ptr_little[j] == ptr_big[i + j] && (i + j) < len && \
+				ptr_big[i + j])
 			j++;
-		}
+		if (ptr_little[j] == '\0')
+			return (ptr_big + i);
 		i++;
 	}
 	return (NULL);
