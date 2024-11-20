@@ -5,21 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 08:58:04 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/20 12:28:18 by ehossain         ###   ########.fr       */
+/*   Created: 2024/11/20 14:19:19 by ehossain          #+#    #+#             */
+/*   Updated: 2024/11/20 14:44:17 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static size_t	ft_count_words(char const *s, char c);
-static void		ft_freeup(char *str);
-static void		ft_strcpy(char *word, char *str, char c, size_t j);
-static char		*ft_stralloc(char *str, char c, size_t *k);
+static void	ft_freeup(char *strs);
+static int	ft_countword(char *str, char c);
+static void	ft_strcpy(char *word, char *str, char c, int j);
+static char	*ft_stralloc(char *str, char c, int *k);
 
 int	main(void)
 {
-	char	str[] = "hello/this/is/a/test/of/Split/";
+	char	str[] = "/hello/this/is/a/test/of/Split/";
 	char	c;
 	char	**ptr_split;
 
@@ -27,54 +25,57 @@ int	main(void)
 	ptr_split = ft_split(str, c);
 	for (int i = 0; i < 8; i++)
 	{
-		printf("the ptr_split[i] = %d %s\n", i, ptr_split[i]);
+		printf("the ptr_split[%d] = %s\n", i, ptr_split[i]);
 	}
-	printf("counted word in str = %zu\n", ft_count_words(str, c));
+	printf("counted word in str = %d\n", ft_wordcount(str, c));
 	return (0);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *str, char c)
 {
-	char	**ptr_s;
-	size_t	i;
-	size_t	pos;
-	size_t	word;
+	char	**ptr_str;
+	int		pos;
+	int		i;
+	int		j;
 
-	ptr_s = NULL;
-	i = 0;
-	pos = 0;
-	word = ft_count_words(s, c);
-	ptr_s = (char **)malloc(sizeof(char *) * (word + 1));
-	if (ptr_s == NULL)
+	if (str == NULL)
 		return (NULL);
-	ptr_s[word] = NULL;
-	while (i < word)
+	pos = 0;
+	i = 0;
+	j = ft_countword(str, c);
+	ptr_str = (char **)malloc(sizeof(char *) * (j + 1));
+	if (ptr_str == NULL)
+		return (NULL);
+	ptr_str[j] = NULL;
+	while (i < j)
 	{
-		ptr_s[i] = ft_stralloc((char *)s, c, &pos);
-		if (ptr_s[i] == NULL)
+		ptr_str[i] = ft_stralloc(((char *)str), c, &pos);
+		if (ptr_str[i] == NULL)
 		{
-			ft_freeup(ptr_s[i]);
+			ft_freeup(ptr_str[i])
 		}
 		i++;
 	}
-	return (ptr_s);
+	return (ptr_str);
 }
 
-static size_t	ft_count_words(const char *s, char c)
+static int	ft_countword(char *str, char c)
 {
-	size_t	i;
-	size_t	word;
+	int	i;
+	int	word;
 
 	i = 0;
 	word = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s[i] != c)
+		if (str[i] != c) /* till it arrive at first occurance */
 		{
-			word++;
-			while (s[i] != c && s[i] != '\0')
+			word += 1;
+			while (str[i] != c && str[i] != '\0')
+			{
 				i++;
-			if (s[i] == '\0')
+			}
+			if (str[i] == '\0')
 				return (word);
 		}
 		i++;
@@ -82,54 +83,7 @@ static size_t	ft_count_words(const char *s, char c)
 	return (word);
 }
 
-static void	ft_freeup(char *str)
+static char	*ft_stralloc(char *str, char c, int *k)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		free(str);
-		i++;
-	}
-	free(str);
-}
-
-static char	*ft_stralloc(char *str, char c, size_t *k)
-{
-	char	*word;
-	int		j;
-
-	j = *k;
-	word = NULL;
-	while (str[*k] != '\0')
-	{
-		if (str[*k] != c)
-		{
-			while (str[*k] != '\0' && str[*k] != c)
-				*k += 1;
-			word = (char *)malloc(sizeof(char) * (*k + 1));
-			if (word == NULL)
-				return (NULL);
-			break ;
-		}
-		*k += 1;
-	}
-	ft_strcpy(word, str, c, j);
-	return (word);
-}
-
-static void	ft_strcpy(char *word, char *str, char c, size_t j)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0' && str[i] == c)
-		j++;
-	while (str[i + j] != '\0' && str[i + j] != c)
-	{
-		word[i] = str[i + j];
-		i++;
-	}
-	word[i] = '\0';
+	int i
 }
