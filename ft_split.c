@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:17:48 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/21 09:39:45 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/23 11:49:32 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ static char	*ft_stralloc(char *str, char c, int *k)
 {
 	char	*word;
 	int		j;
+	int		word_len;
 
 	word = NULL;
 	j = *k;
@@ -96,11 +97,13 @@ static char	*ft_stralloc(char *str, char c, int *k)
 	{
 		if (str[*k] != c)
 		{
-			while (str[*k] != '\0' && str[*k] != c)
-				*k = *k + 1;
-			word = (char *)malloc(sizeof(char *) * (*k + 1));
+			word_len = 0;
+			while (str[*k + word_len] != '\0' && str[*k + word_len] != c)
+				word_len++;
+			word = (char *)malloc(sizeof(char) * (word_len + 1));
 			if (word == NULL)
 				return (NULL);
+			*k += word_len;
 			break ;
 		}
 		*k = *k + 1;

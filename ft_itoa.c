@@ -6,13 +6,14 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:41:08 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/21 11:41:39 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/11/23 10:19:35 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static unsigned int	ft_number_size(long int number);
+char				*ft_ft_itoa(unsigned long int num, int len, char *string_n);
 
 // int	main(void)
 // {
@@ -31,6 +32,7 @@ char	*ft_itoa(int n)
 	unsigned long int	num;
 	int					len;
 
+	num = n;
 	len = ft_number_size(n);
 	string_n = (char *)malloc(sizeof(char) * (len + 1));
 	if (string_n == NULL)
@@ -41,11 +43,18 @@ char	*ft_itoa(int n)
 		string_n[0] = '-';
 		num = -num;
 	}
-	else
-		num = n;
 	if (num == 0)
 		string_n[0] = '0';
 	string_n[len] = '\0';
+	if (num != 0)
+	{
+		string_n = ft_ft_itoa(num, len, string_n);
+	}
+	return (string_n);
+}
+
+char	*ft_ft_itoa(unsigned long int num, int len, char *string_n)
+{
 	while (num != 0)
 	{
 		string_n[len - 1] = (num % 10) + '0';
