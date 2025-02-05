@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:51:11 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/05 23:32:50 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:57:45 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int					ft_isnum(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_strncmp(const char *str1, const char *str2, size_t n);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
 void				*ft_memset(char *str, int c, size_t n);
