@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:51:11 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/09 21:21:40 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/10 08:53:57 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void				*ft_bzero(char *str, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memchr(const void *str, int c, size_t n);
+void				ft_calloc(size_t count, size_t size);
 size_t				ft_strlen(char *str);
 size_t				ft_strlcpy(char *dest, const char *src, size_t len);
 size_t				ft_strlcat(char *dest, const char *src, size_t len);
