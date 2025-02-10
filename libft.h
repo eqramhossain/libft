@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:51:11 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/10 09:08:31 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:20:14 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int					ft_atoi(const char *str);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
 char				*ft_strdup(const char *s1);
+char				*ft_substr(const char *s, unsigned int start, size_t len);
 void				*ft_memset(char *str, int c, size_t n);
 void				*ft_bzero(char *str, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
