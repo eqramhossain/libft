@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:50:04 by ehossain          #+#    #+#             */
-/*   Updated: 2025/01/05 16:29:53 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:42:22 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 // 	return (0);
 // }
 
-size_t ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (str[len])

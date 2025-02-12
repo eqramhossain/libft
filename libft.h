@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:51:11 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/12 11:06:56 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:42:10 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ char				*ft_substr(const char *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s, const char *set);
 char				*ft_itoa(int n);
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				*ft_memset(char *str, int c, size_t n);
 void				*ft_bzero(char *str, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memchr(const void *str, int c, size_t n);
 void				*ft_calloc(size_t count, size_t size);
-size_t				ft_strlen(char *str);
+size_t				ft_strlen(const char *str);
 size_t				ft_strlcpy(char *dest, const char *src, size_t len);
 size_t				ft_strlcat(char *dest, const char *src, size_t len);
 /* **************************************************************************** */
