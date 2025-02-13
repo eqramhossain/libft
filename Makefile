@@ -6,7 +6,7 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 15:06:13 by ehossain          #+#    #+#              #
-#    Updated: 2025/02/13 15:06:15 by ehossain         ###   ########.fr        #
+#    Updated: 2025/02/13 15:15:24 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 NAME = libft.a
 OBJECT = ${SOURCE:.c=.o} 
-OBJECT2 = ${BONUS:.c=.o}
+OBJECT_BONUS = ${BONUS:.c=.o}
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -31,11 +31,11 @@ all : $(NAME)
 $(NAME) : $(OBJECT)
 	ar rcs $(NAME) $(OBJECT)
 clean : 
-	rm -f $(OBJECT) $(OBJECT2)
+	rm -f $(OBJECT) $(OBJECT_BONUS)
 fclean : clean
-	rm -f $(NAME) $(OBJECT2)
+	rm -f $(NAME) $(OBJECT_BONUS)
 re : fclean all
-bonus : $(OBJECT) $(OBJECT2)
-	ar rcs  $(NAME) $(OBJECT2) $(OBJECT)
+bonus : $(OBJECT) $(OBJECT_BONUS)
+	ar rcs  $(NAME) $(OBJECT_BONUS) $(OBJECT)
 
 .PHONY: clean fclean re all
