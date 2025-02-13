@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 16:49:25 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/13 11:11:32 by ehossain         ###   ########.fr       */
+/*   Created: 2025/02/13 12:47:25 by ehossain          #+#    #+#             */
+/*   Updated: 2025/02/13 14:24:13 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*currnet;
-	t_list	*prev;
+	t_list	*new_lst;
+	t_list	*new_node;
 
-	currnet = malloc(1 * sizeof(t_list));
-	prev = malloc(1 * sizeof(t_list));
-	if (!prev || !currnet)
-		return ;
-	currnet = *lst;
-	if (currnet == NULL)
-		currnet = new;
-	else if (currnet->next == NULL)
-		currnet->next = new;
-	else
+	new_lst = NULL;
+	if (!lst || !f || !del)
+		return (NULL);
+	while (lst != NULL)
 	{
-		while (currnet->next != NULL)
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
 		{
-			prev = currnet;
-			currnet = currnet->next;
+			ft_lstclear(&new_node, del);
+			return (NULL);
 		}
+		new_lst = ft_lstadd_back(&new_lst, new_node);
+		lst = lst->next;
 	}
-	currnet->next = new;
+	return (new_lst);
 }
