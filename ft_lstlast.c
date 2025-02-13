@@ -6,11 +6,11 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:48:36 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/05 16:49:03 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:11:03 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "library.h"
+#include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

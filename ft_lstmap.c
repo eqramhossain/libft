@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:47:25 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/13 14:24:13 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:13:33 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstclear(&new_node, del);
 			return (NULL);
 		}
-		new_lst = ft_lstadd_back(&new_lst, new_node);
+		ft_lstadd_back(&new_lst, new_node);
 		lst = lst->next;
 	}
 	return (new_lst);

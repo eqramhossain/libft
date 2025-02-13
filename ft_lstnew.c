@@ -6,11 +6,11 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:30:40 by ehossain          #+#    #+#             */
-/*   Updated: 2025/02/05 16:31:12 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:10:07 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "library.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
